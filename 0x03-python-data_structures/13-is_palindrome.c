@@ -10,24 +10,34 @@
  */
 int is_palindrome(listint_t **head)
 {
-    listint_t *temp;
-    int values[1024];
-    int i, j;
+    listint_t *temp, *front, *back;
 
-    temp = *head;
-    i = 0;
-    while (temp != NULL)
+    if (*head == NULL || (*head)->next == NULL)
+        return (1);
+
+    front = *head;
+    back = *head;
+
+    while (front->next != NULL)
     {
-        values[i] = temp->n;
-        temp = temp->next;
-        i++;
+        front = front->next;
+        if (front->next != NULL)
+            front = front->next;
+        else
+            break;
+        back = back->next;
     }
 
-    j = i - 1;
-    for (i = 0; i < j; i++, j--)
+    temp = back->next;
+    back->next = NULL;
+    back = temp;
+
+    while (back != NULL)
     {
-        if (values[i] != values[j])
+        if (front->n != back->n)
             return (0);
+        front = front->next;
+        back = back->next;
     }
 
     return (1);
