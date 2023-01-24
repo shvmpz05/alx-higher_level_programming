@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+This module will create a class called Sqaure
+"""
+
+
 class Square:
     """
     creates a square class object
