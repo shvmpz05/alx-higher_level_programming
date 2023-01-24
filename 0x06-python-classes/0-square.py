@@ -5,7 +5,7 @@ This module will create an empty class called Square
 
 
 class Square:
+
+    """ Creates an empty class """
+
     pass
-    """
-    creates a square class object
-    """
