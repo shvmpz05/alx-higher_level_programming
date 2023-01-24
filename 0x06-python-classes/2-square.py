@@ -1,17 +1,22 @@
 #!/usr/bin/python3
 class Square:
+
     """
-    creates a square object
+    Initialize an instace of Square
+
     """
     def __init__(self, size=0):
-        if(type(size) is not int):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        if(size < 0):
+        elif (size < 0):
             raise ValueError("size must be >= 0")
-        self.__size = size
-        """
-        initializes instance of a square
-        Args:
-            __size(int): size of square
-            size must be positive and integer type
-        """
+        else:
+            self.__size = size
+
+    """
+    Check if the size of the square is less than zero
+    or Not an integer
+
+    __size(int) = the size of the square
+
+    """
