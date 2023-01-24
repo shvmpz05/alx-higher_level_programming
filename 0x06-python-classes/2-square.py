@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module contains class Sqaure
+
+"""
 class Square:
 
     """
