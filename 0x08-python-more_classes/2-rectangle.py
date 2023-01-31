@@ -20,7 +20,7 @@ class Rectangle:
         return self.__height
 
     @width.setter
-    def widn 'chriskempson/base16-vim'th(self, value):
+    def width(self, value):
         if (value < 0):
             raise ValueError("width must be >= 0")
         if not isinstance(value, int):
@@ -34,3 +34,12 @@ class Rectangle:
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         self.__height = value
+
+    def area(self):
+        return (self.__width * self.__height)
+
+    def perimeter(self):
+        if ((self.__width == 0) or (self.__height == 0)):
+            return 0
+        else:
+            return 2 * (self.__width + self.__height)
