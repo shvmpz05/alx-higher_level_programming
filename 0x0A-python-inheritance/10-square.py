@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+"""
+Raising exceptions
+"""
+
+
+class BaseGeometry:
+
+    """ Methid to raise exception """
+    def area(self):
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+
+        """ validation """
+        if not type(value) == int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
+
+class Rectangle(BaseGeometry):
+
+    """Rectangle class that inherits from the BaseGeo"""
+
+    def __init__(self, width, height):
+
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+
+        self.__width = width
+        self.__height = height
+
+    def area(self):
+        """ Returns area"""
+
+        return  self.__width * self.__height
+
+    def __str__(self):
+        """returns string"""
+
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
+"""Creating square class"""
+
+class Square(Rectangle):
+    """creates square"""
+
+    def __init__(self, size):
+        
+        """initializes rectangle"""
+
+        self.integer_validator("size", size)
+        self.__size = size
+        super().__init__(size, size)
